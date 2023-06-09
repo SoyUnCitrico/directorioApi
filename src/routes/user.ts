@@ -1,9 +1,10 @@
-import { Request, Response, Router } from 'express';
+import { Router } from 'express';
+import { checkJwt } from '../middleware/session';
 import { getUsuario, getUsuarios, deleteUsuario } from '../controllers/user';
 
 const router = Router();
-router.get("/", getUsuarios);
-router.get("/:id", getUsuario);
-router.delete("/:id", deleteUsuario);
+router.get("/", checkJwt, getUsuarios);
+router.get("/:id", checkJwt, getUsuario);
+router.delete("/:id", checkJwt, deleteUsuario);
 
 export { router }

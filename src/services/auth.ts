@@ -2,6 +2,7 @@ import { Auth } from "../interface/auth.interface";
 import { User } from "../interface/user.interface"
 import UserModel from "../models/users"
 import { encrypt, verified } from "../utils/crypt.handle";
+import { generateToken } from "../utils/jwt.handle";
 
 const registerNewUser = async (authUser: User) => {
     // console.log(authUser);
@@ -42,7 +43,15 @@ const loginUser = async (authUser:Auth) => {
         const passwordHashed = checkIs.password;
         const isCorrect = await verified(authUser.password, passwordHashed)
         if(!isCorrect) return "PASSWORD INCORRECTA";
-        else return checkIs;
+        else {
+            // Si la contraseña es correcta devuelve el token para status de sesion
+            const token = await generateToken(checkIs.id);
+            const data = {
+                token,
+                authUser: checkIs,
+            }
+            return data;
+        };
     }
 }
 
