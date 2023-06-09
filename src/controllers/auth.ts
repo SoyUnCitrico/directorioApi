@@ -14,6 +14,7 @@ const registerCtrl = async(req: Request, res: Response) => {
 
 const loginCtrl = async(req:Request, res:Response) => {
     try {
+        console.log(req.body)
         const responseUser = await loginUser(req.body)
         if(responseUser === "PASSWORD INCORRECTA") {
             res.status(403);

@@ -1,7 +1,9 @@
 import { NextFunction, Request, Response } from "express"
 import { verifyToken } from "../utils/jwt.handle";
+import { RequestExt } from "../interface/reqExt.interface";
 
-const checkJwt = async(req: Request, res: Response, next:NextFunction) => {
+
+const checkJwt = async(req: RequestExt, res: Response, next:NextFunction) => {
     try {
         const jwtUser = req.headers.authorization || null;
         const jwt = jwtUser?.split(' ').pop();
@@ -11,6 +13,7 @@ const checkJwt = async(req: Request, res: Response, next:NextFunction) => {
             res.status(401);
             res.send("JWT INVALID")
         } else {
+            req.user = tokenOk;
             next();
         }
     } catch(e) {    

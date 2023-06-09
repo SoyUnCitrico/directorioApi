@@ -1,6 +1,5 @@
 import { User } from "../interface/user.interface"
 import UserModel from "../models/users"
-import { encrypt } from "../utils/crypt.handle";
 
 const getUser = async (id:string) => {
     const returnedUser = UserModel.findOne({
@@ -14,11 +13,19 @@ const getUsers = async () => {
 }
 
 const deleteUser = async (id:string) => {
-    const returnedUser = UserModel.deleteOne({ _id: id })
+    const returnedUser = UserModel.findOneAndDelete({ _id: id })
     return returnedUser;
 }
+
+const updateUser = async(id:string, data: User) => {
+    // console.log(data)
+    const returnedUser = UserModel.findOneAndUpdate({_id: id}, data, {new:true})
+    return returnedUser;
+}
+
 export {
     getUser,
     getUsers,
     deleteUser,
+    updateUser,
 }
