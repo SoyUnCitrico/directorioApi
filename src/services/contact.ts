@@ -37,4 +37,10 @@ const deleteContact = async( id:string )=> {
     const responseContact = await ContactModel.deleteOne({ _id: id })
     return responseContact;
 }
-export { insertContact, getContacts, getContact, updateContact, deleteContact }
+export { 
+    insertContact,
+    getContacts,
+    getContact,
+    updateContact,
+    deleteContact
+}

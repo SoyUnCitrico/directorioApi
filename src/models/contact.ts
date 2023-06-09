@@ -26,3 +26,4 @@ const ContactSchema = new Schema<Contact>(
 
 const ContactModel = model('contacts', ContactSchema);
 export default ContactModel;
+export { ContactSchema }

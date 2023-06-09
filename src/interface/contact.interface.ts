@@ -1,6 +1,6 @@
 export interface Contact {
-    name: string
+    name: string // Requerido
     lastName: string
-    email: string
+    email: string  // Requerido
     phone: string
 }

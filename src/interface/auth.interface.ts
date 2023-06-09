@@ -1,4 +1,5 @@
+import { Contact } from "./contact.interface";
 export interface Auth {
-    email: string;
-    password: string;
+    user: Contact; // Requerido
+    password: string; // Requerido
 }
