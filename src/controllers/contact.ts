@@ -52,7 +52,6 @@ const deleteContacto = async (req: Request, res: Response) => {
 
 const getManyContactos = async (req: Request, res: Response) => {
     try {
-        // const { id } = req.params
         const data = req.body
         const response = await getManyContacts(data);
         res.send(response);

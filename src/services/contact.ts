@@ -22,8 +22,7 @@ const getContacts = async()=> {
 }
 
 const getManyContacts = async(data:Array<any>)=> {
-    console.log(data)
-    const responseContacts = await ContactModel.find({id:{$in:data}})
+    const responseContacts = await ContactModel.find({_id:{$in:data}})
     return responseContacts;
 }
 

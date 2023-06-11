@@ -6,7 +6,7 @@ const router = Router();
 
 router.get("/", getContactos)
 router.get("/:id", checkJwt, getContacto)
-router.get("/many/", checkJwt, getManyContactos)
+router.get("/many/contacts", checkJwt, getManyContactos)
 router.post("/",  checkJwt, postContacto);
 router.put("/:id",  checkJwt, updateContacto)
 router.delete('/:id',  checkJwt, deleteContacto)
