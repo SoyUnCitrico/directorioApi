@@ -13,7 +13,7 @@ const UserSchema = new Schema<User>(
             required:true
         },
         directorio: {
-            type: [ContactSchema]
+            type: [String]
         },
         isAdmin: {
             type: Boolean
