@@ -43,7 +43,7 @@ const updateUsuario = async(req: Request, res: Response) => {
         res.send(response);
 
     } catch(e) {
-        errorHandleHttp(res, 'ERROR DELETE_USER')
+        errorHandleHttp(res, 'ERROR UPDATE_USER')
     }
 }
 

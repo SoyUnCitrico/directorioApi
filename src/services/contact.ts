@@ -21,6 +21,11 @@ const getContacts = async()=> {
     return responseContacts;
 }
 
+const getManyContacts = async(data:Array<any>)=> {
+    const responseContacts = await ContactModel.find({id:{$in:data}})
+    return responseContacts;
+}
+
 const getContact = async( id:string )=> {
     const responseContact = await ContactModel.findOne({
         _id: id
@@ -42,5 +47,6 @@ export {
     getContacts,
     getContact,
     updateContact,
-    deleteContact
+    deleteContact,
+    getManyContacts
 }

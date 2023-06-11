@@ -1,6 +1,6 @@
 import { Response, Request } from 'express';
 import { errorHandleHttp } from '../utils/error.handle';
-import { insertContact, getContacts, getContact, updateContact, deleteContact } from '../services/contact';
+import { insertContact, getContacts, getContact, updateContact, deleteContact, getManyContacts } from '../services/contact';
 
 
 const getContacto = async (req: Request, res: Response) => {
@@ -50,11 +50,21 @@ const deleteContacto = async (req: Request, res: Response) => {
     }
 }
 
-
+const getManyContactos = async (req: Request, res: Response) => {
+    try {
+        // const { id } = req.params
+        const data = req.body
+        const response = await getManyContacts(data);
+        res.send(response);
+    } catch(e) {
+        errorHandleHttp(res, 'ERROR DELETE_CONTACT')
+    }
+}
 export {
     getContacto,
     getContactos,
     updateContacto,
     postContacto,
-    deleteContacto
+    deleteContacto,
+    getManyContactos
 }
