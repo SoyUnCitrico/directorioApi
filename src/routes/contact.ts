@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { checkJwt } from '../middleware/session';
 import { getContactos, postContacto, getContacto,updateContacto, deleteContacto, getManyContactos } from "../controllers/contact";
-import { logMiddleware } from "../middleware/log";
 
 const router = Router();
 

@@ -57,7 +57,7 @@ const getManyContactos = async (req: Request, res: Response) => {
         const response = await getManyContacts(data);
         res.send(response);
     } catch(e) {
-        errorHandleHttp(res, 'ERROR DELETE_CONTACT')
+        errorHandleHttp(res, 'ERROR MANY_CONTACT')
     }
 }
 export {
